@@ -1,0 +1,11 @@
+# gello-host runtime
+version: 1
+site: gello-host
+sensors_config: ./sensors_gello.yaml
+dry_run: false
+sensor_id: gello-leader
+
+runtime:
+  sample_hz: 50
+  web_host: "127.0.0.1"
+  web_port: 7020

@@ -1,0 +1,68 @@
+version: 1
+site: gello-host
+dry_run: false
+defaults:
+  gello:
+    baudrate: 1000000
+    max_delta_rad: 0.8
+    joint_ids:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    joint_offsets:
+    - 1.5707963267948966
+    - 6.283185307179586
+    - 6.283185307179586
+    - 6.283185307179586
+    - -4.71238898038469
+    - 3.141592653589793
+    # J7: raw 1.83 → Huiling 0 mm  (offset = 1.83)
+    - 1.83
+    joint_signs:
+    - 1
+    - 1
+    - -1
+    - 1
+    - 1
+    - 1
+    # J7: raw 0.9986 → Huiling 65 mm
+    # sign = -65 / (1.83 - 0.9986) = -78.18138080346404
+    # q = (raw - offset) * sign  → mm for /gripper
+    - -78.18138080346404
+devices:
+- id: gello-leader
+  kind: gello
+  name: Gello · Leader
+  endpoint: COM13
+  params:
+    baudrate: 1000000
+    joint_ids:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    port_substr: ''
+    gripper_config: null
+    joint_offsets:
+    - 1.5707963267948966
+    - 6.283185307179586
+    - 6.283185307179586
+    - 6.283185307179586
+    - -4.71238898038469
+    - 3.141592653589793
+    - 1.83
+    joint_signs:
+    - 1
+    - 1
+    - -1
+    - 1
+    - 1
+    - 1
+    - -78.18138080346404

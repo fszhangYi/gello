@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gello Host</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Gello Host</h1>
+    <p class="sub">单一 Dynamixel leader 测试上位机 · hik-sensors <code>kind=gello</code></p>
+  </header>
+
+  <section class="card config-paths">
+    <h2>已加载配置（只读）</h2>
+    <div class="path-row"><span class="k">host</span><code id="hostConfigPath" class="path">—</code></div>
+    <div class="path-row"><span class="k">sensors</span><code id="sensorsConfigPath" class="path">—</code></div>
+  </section>
+
+  <section class="toolbar">
+    <label class="chk"><input type="checkbox" id="dryRun" checked /> dry_run</label>
+    <button id="btnConnect">连接</button>
+    <button id="btnDisconnect">断开</button>
+    <button id="btnProbe">Probe</button>
+    <button id="btnRate">测速 3s</button>
+    <button id="btnPorts">串口列表</button>
+    <button id="btnRestart" class="warn">重启后端</button>
+    <span id="meta" class="meta">idle</span>
+  </section>
+
+  <section class="card">
+    <h2>极性 / Offset 编辑</h2>
+    <p class="hint">J1–J6：sign ±1，offset 按 0.5π 步进。J7：浮点 sign/offset，标定值即慧灵行程 mm（raw 1.83→0，raw 0.9986→65）。「下发」临时覆盖；「同步到 YAML」写回 sensors 配置。</p>
+    <div id="affineEditor" class="affine-editor"></div>
+    <div class="affine-actions">
+      <button id="btnAffineApply" class="ok">下发（临时）</button>
+      <button id="btnAffineSync">同步到 YAML</button>
+      <span id="affineMeta" class="meta"></span>
+    </div>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <h2>状态</h2>
+      <pre id="statusBox">—</pre>
+    </div>
+    <div class="card grow">
+      <h2>关节（J1–J6 deg · J7 mm）</h2>
+      <div id="bars" class="bars"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>原始 / 标定 (rad)</h2>
+    <pre id="rawBox">—</pre>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
