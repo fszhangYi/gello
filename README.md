@@ -65,7 +65,7 @@ gello ports -c configs/default.yaml
 
 ## 对外数据接口
 
-设计见 [`docs/streaming-endpoints-design.md`](docs/streaming-endpoints-design.md)。关节语义见 [`docs/joints-raw-and-calibrated.md`](docs/joints-raw-and-calibrated.md)。
+接口说明见 [`data-export/tcp-api-interface.md`](data-export/tcp-api-interface.md)。设计见 [`docs/streaming-endpoints-design.md`](docs/streaming-endpoints-design.md)。关节语义见 [`docs/joints-raw-and-calibrated.md`](docs/joints-raw-and-calibrated.md)。
 
 | 路径 | 说明 |
 |------|------|
